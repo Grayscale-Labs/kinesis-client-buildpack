@@ -17,7 +17,7 @@ export BUNDLE_PATH="$cache_dir/vendor/bundle"
 mkdir -p "$BUNDLE_PATH"
 bundle install
 
-export JAR_DIR="$cache_dir/vendor/jars"
+export JAR_DIR="$cache_dir/vendor/kcl_jars"
 mkdir -p "$JAR_DIR"
 rake --rakefile $(bundle info --path aws-kcl-runner)/Rakefile download_jars
 
