@@ -20,13 +20,7 @@ bundle install
 export JAR_DIR="$cache_dir/vendor/kcl_jars"
 mkdir -p "$JAR_DIR"
 
-GEM_INSTALL_PATH="$(bundle info --path aws-kcl-runner)"
-
-# Ensure we use the app's enviroment and gems when running the rake command.
-unset BUNDLE_PATH
-unset BUNDLE_GEMFILE
-
-rake --rakefile "$GEM_INSTALL_PATH/Rakefile" download_jars
+bundle exec rake --rakefile "$(bundle info --path aws-kcl-runner)/Rakefile" download_jars
 
 echo "Copying jars to build dir"
 cp -r "$JAR_DIR" "$build_dir/vendor/"
