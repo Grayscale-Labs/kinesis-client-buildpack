@@ -8,7 +8,7 @@ cache_dir="$2"
 
 export GEM_HOME="$cache_dir/vendor/gems"
 mkdir -p "$GEM_HOME"
-bundle_version="2.2.30"
+bundle_version="2.2.32"
 gem install bundler -v $bundle_version
 export PATH="$PATH:$GEM_HOME/gems/bundler-$bundle_version/exe/"
 
