@@ -26,6 +26,8 @@ GEM_INSTALL_PATH="$(bundle info --path aws-kcl-runner)"
 unset BUNDLE_PATH
 unset BUNDLE_GEMFILE
 
+echo "Current directory is $(pwd)"
+
 rake --rakefile "$GEM_INSTALL_PATH/Rakefile" download_jars
 
 echo "Copying jars to build dir"
