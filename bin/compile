@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
-set -e
+set -ex
 
 build_dir="$1"
 cache_dir="$2"
@@ -19,7 +19,7 @@ bundle install
 
 export JAR_DIR="$cache_dir/vendor/kcl_jars"
 mkdir -p "$JAR_DIR"
-rake --rakefile $(bundle info --path aws-kcl-runner)/Rakefile download_jars
+bundle exec rake --rakefile $(bundle info --path aws-kcl-runner)/Rakefile download_jars
 
 echo "Copying jars to build dir"
 cp -r "$JAR_DIR" "$build_dir/vendor/"
